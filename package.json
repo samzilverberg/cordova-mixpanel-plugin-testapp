@@ -1,0 +1,28 @@
+{
+  "name": "cordova-mixpanel-plugin-testapp",
+  "version": "1.0.0",
+  "description": "Test App for the cordova mixpanel plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samzilverberg/cordova-mixpanel-plugin-testapp.git"
+  },
+  "keywords": [
+    "mixpanel",
+    "cordova",
+    "plugin",
+    "test",
+    "testapp"
+  ],
+  "author": "Sam Zilverberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samzilverberg/cordova-mixpanel-plugin-testapp/issues"
+  },
+  "homepage": "https://github.com/samzilverberg/cordova-mixpanel-plugin-testapp",
+  "cordovaPlugins": [
+    "org.apache.cordova.console",
+    "com.samz.mixpanel"
+  ],
+  "cordovaPlatforms": [
+  ]
+}
