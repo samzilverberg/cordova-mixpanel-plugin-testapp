@@ -4,7 +4,7 @@ angular.module('testapp.controllers', [])
   .controller('MixpanelCtrl', function($scope) {
 
     var mixpanel = null,
-      token = '';
+      token = ''; //<< PUT YOUR TOKEN OF YOUR MIXPANEL PROJECT HERE
 
     $scope.initMixpanel = function() {
       console.log('init mixpanel');
@@ -27,7 +27,7 @@ angular.module('testapp.controllers', [])
           console.log('fail init');
           console.log(err);
 
-        })
+        }
     };
 
     $scope.track = function() {
@@ -39,7 +39,7 @@ angular.module('testapp.controllers', [])
           console.log('fail track');
           console.log(fail);
         })
-    }
+    };
 
     $scope.flush = function() {
       mixpanel.flush('flush',
@@ -48,7 +48,7 @@ angular.module('testapp.controllers', [])
         }, function(fail) {
           console.log('fail flush');
         })
-    }
+    };
 
 
   });
