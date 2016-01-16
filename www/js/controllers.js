@@ -42,7 +42,7 @@ angular.module('testapp.controllers', [])
     };
 
     $scope.flush = function() {
-      mixpanel.flush('flush',
+      mixpanel.flush(
         function(what) {
           console.log('success flush');
         }, function(fail) {
