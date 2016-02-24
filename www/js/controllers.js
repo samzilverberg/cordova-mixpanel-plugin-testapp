@@ -6,12 +6,15 @@ angular.module('testapp.controllers', [])
     var mixpanel = null,
       token = ''; //<< PUT YOUR TOKEN OF YOUR MIXPANEL PROJECT HERE
 
+    var user = ''; //<< PUT HERE A MIXPANEL'S USER ID
+    var email = ''; //<< PUT HERE AN EMAIL TO ATTACH TO USER ON ALIAS BUTTON CLICK
+
     $scope.initMixpanel = function() {
       console.log('init mixpanel');
       mixpanel = window.mixpanel;
       console.log('whats in window.mixpanel?');
       console.log(Object.keys(mixpanel));
-      mixpanel.init(token),
+      mixpanel.init(token,
         function(what) {
           console.log('success init');
           setTimeout(function() {
@@ -27,11 +30,11 @@ angular.module('testapp.controllers', [])
           console.log('fail init');
           console.log(err);
 
-        }
+        });
     };
 
     $scope.track = function() {
-      mixpanel.track('track test 2', { color: 'YELLOW' },
+      mixpanel.track('track test', { color: 'YELLOW' },
         function(what) {
           console.log('success track');
           console.log(what);
@@ -49,6 +52,52 @@ angular.module('testapp.controllers', [])
           console.log('fail flush');
         })
     };
+
+        $scope.alias = function() {
+      mixpanel.alias(
+        user, null, 
+        function(what) {
+          console.log('success alias');
+        }, function(fail) {
+          console.log('fail alias');
+        });
+      $scope.setInitProperty();
+    };
+
+    $scope.identify = function() {
+      mixpanel.people.identify(
+        user, 
+        function(what) {
+          console.log('success identify');
+        }, function(fail) {
+          console.log('fail identify');
+        });
+
+    };
+
+    $scope.setProperty = function(){
+        mixpanel.people.set({
+          "$last_login": new Date() 
+        }, 
+        function(what) {
+          console.log('success identify');
+        }, function(fail) {
+          console.log('fail identify');
+        })
+    };
+
+    $scope.setInitProperty = function(){
+        mixpanel.people.setOnce({
+         "$email": email,
+        }, 
+        function(what) {
+          console.log('success identify');
+        }, function(fail) {
+          console.log('fail identify');
+        })
+    };
+
+
 
 
   });
