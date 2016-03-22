@@ -21,8 +21,9 @@
   "homepage": "https://github.com/samzilverberg/cordova-mixpanel-plugin-testapp",
   "cordovaPlugins": [
     "org.apache.cordova.console",
-    "com.samz.mixpanel"
+    "cordova-plugin-mixpanel"
   ],
   "cordovaPlatforms": [
+    "android"
   ]
 }
